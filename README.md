@@ -1,7 +1,11 @@
 # Password Generator 
 
 ## Screenshot
+Before
 <img src="images/challenge 3.png">
+After
+<img src="images/challenge 3 results.png">
+
 
 ## Background
 This is a password generator page developed using Javascript. It provides the user with password options under certain criterias such as password length, usage of uppercase letters, lowercase letters, numbers and special characters.
