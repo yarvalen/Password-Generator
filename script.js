@@ -3,8 +3,6 @@ let UpperLetters = ['A', 'B', 'C', 'D','E','F','G','H', 'I', 'J', 'K', 'L' , 'M'
 let LowerLetters = ['a', 'b','c','d', 'e','f','g','h', 'i', 'j', 'k', 'l', 'm', 'n', 'o','p','q','r','s', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 let Digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 let UniqueCharacters = ['~', '`', '!','@','#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '[', ']', '{', '}', '|', ':', ';', '"', ',', '<', '.', '>', '/', '?']
-let characterbank = "";
-let givenpassword = "";
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
@@ -27,39 +25,40 @@ function generatePassword() {
         passwordlength = prompt("Please choose a password length between 8 and 128 characters")
         return passwordlength;
     } else {
-    let Uppercase = confirmUppercase("Will password have uppercase characters?");
+    let Uppercase = confirm("Will password have uppercase characters?");
     if (Uppercase === true) {
         characterbank = characterbank.concat(UpperLetters)
     }
 
-    let Lowercase = confirmLowercase("Will password have lower characters?");
+    let Lowercase = confirm("Will password have lower characters?");
     if (Lowercase === true) {
         characterbank = characterbank.concat(LowerLetters)
     }
 
-    let Numbers = confirmNumbers("Will password have numbers?");
+    let Numbers = confirm("Will password have numbers?");
     if (Numbers === true) {
-        characterbank = characterbank.concat(Numbers)
+        characterbank = characterbank.concat(Digits)
     }
 
-    let SpecialCharacters = confirmSpecialCharacters("Will password have special characters?");
+    let SpecialCharacters = confirm("Will password have special characters?");
     if (SpecialCharacters === true) {
-        characterbank = characterbank.concat(SpecialCharacters)
+        characterbank = characterbank.concat(UniqueCharacters)
     }
 
-    if (confirmUppercase,confirmLowercase,confirmNumbers,confirmSpecialCharacters){
+    if (Uppercase == false && Lowercase == false && Numbers == false && SpecialCharacters == false){
         alert("Password did not meet criterias, please try again")
-    }
-
+    } 
+   console.log(characterbank)
+let finalpassword= ""
     for (let i = 0; i < passwordlength; ++i){
-        let value = Math.floor(Math.random() * givenpassword.length);
-        passwordlength = passwordlength + givenpassword[value];
+        let value = Math.floor(Math.random() * characterbank.length);
+        finalpassword = finalpassword + characterbank[value];
         }
-        return passwordlength;
+        return finalpassword;
 
 }
 }
-console.log (confirmUppercase,confirmLowercase,confirmNumbers,confirmSpecialCharacters)
+// console.log (confirmUppercase,confirmLowercase,confirmNumbers,confirmSpecialCharacters)
 
 
 // Add event listener to generate button
